@@ -1,0 +1,61 @@
+<div class="searc d-flex w-100 justify-content-between px-5">
+  <h3 class="text-primary">Mavjud guruhlar</h3>
+</div>
+<div class="row p-4 owevflow">
+  <% foundTeacher.forEach(e => { %>
+  <div class="col-md-4 mb-3">
+    <div class="card h-100 card__card">
+      <div
+        class="bg-primary informatika d-flex justify-content-between px-3 align-items-center"
+      >
+        <p class="text-light mt-3"><%= e.group_name %></p>
+        <p class="mt-4 pointer" id="delete__group" data-id="<%= e.group_id %> ">
+          &#10006;
+        </p>
+      </div>
+      <div class="p-3">
+        <div class="d-flex">
+          <img
+            src="./images/Group 30.png"
+            width="50"
+            height="50"
+            class="mt-2"
+            alt=""
+          />
+          <div class="">
+            <p class="card__p">
+              O’qituvchi
+              <span class="card__span padding"
+                ><%= e.teacher[0]?.teacher_name %>
+              </span>
+            </p>
+            <p class="card__p">
+              Tell raqam:
+              <span class="card__span">
+                <%= e.teacher[0]?.teacher_phone %>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="card__p">Dars kunlari:</p>
+          <p class="card__span"><%= e.class_days %></p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="card__p">Dars vaqti:</p>
+          <p class="card__span"><%= e.class_time %></p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="card__p">O’quvchilar soni</p>
+          <p class="card__span"><%= e.student_count%></p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="card__p">guruh yaratilgan sana</p>
+          <p class="card__span"><%= e.group_date %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% }) %>
+</div>

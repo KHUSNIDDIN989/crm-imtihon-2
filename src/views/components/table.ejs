@@ -1,0 +1,34 @@
+<div class="searc d-flex w-100 justify-content-between px-5">
+  <h3 class="text-primary">Bizning o’quvchilar</h3>
+  <select
+    class="form-select btn_widht"
+    id="filter"
+    aria-label="Default select example"
+  >
+    <% group?.forEach(e => { %>
+    <option value="<%= e.group_name %>"><%= e.group_name %></option>
+    <% }) %>
+  </select>
+  <input
+    type="search"
+    name="search"
+    id="search"
+    class="form-control mx-2 btn_widht"
+    placeholder="Search"
+  />
+</div>
+<div class="p-5 table_student">
+  <table class="table table-hover border table-striped">
+    <thead class="bg-color">
+      <tr>
+        <th scope="col">№</th>
+        <th scope="col">O’quvchi ismi</th>
+        <th scope="col">Telefon nomer</th>
+        <th scope="col">Yo’nalish</th>
+        <th scope="col">Dars kunlari</th>
+        <th scope="col" colspan="2">Dars vaqti</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>

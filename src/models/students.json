@@ -1,0 +1,38 @@
+[
+    {
+        "teacher_id": 1,
+        "teacher_name": "Eshmat",
+        "teacher_group_name": "NodeJs",
+        "teacher_phone": "+998998995551",
+        "class_days": "DU-SE-CHOR",
+        "class_time": "9:00-11:00",
+        "teacher_date": "2022-05-27T11:40:47.831Z"
+    },
+    {
+        "teacher_id": 2,
+        "teacher_name": "Eshmat",
+        "teacher_group_name": "NodeJs",
+        "teacher_phone": "+998998995555",
+        "class_days": "DU-SE-CHOR",
+        "class_time": "9:00-11:00",
+        "teacher_date": "2022-05-27T11:42:39.371Z"
+    },
+    {
+        "teacher_id": 3,
+        "teacher_name": "Toshmat",
+        "teacher_group_name": "Java",
+        "teacher_phone": "+998998995555",
+        "class_days": "DU-SE-CHOR",
+        "class_time": "9:00-11:00",
+        "teacher_date": "2022-05-27T11:44:14.432Z"
+    },
+    {
+        "student_id": null,
+        "student_name": "Husniddin",
+        "student_phone": "+998918985959",
+        "direction": "NodeJs",
+        "class_days": "DU-SE-CHOR",
+        "class_time": "9:00-11:00",
+        "student_date": "2022-05-27T13:28:14.020Z"
+    }
+]

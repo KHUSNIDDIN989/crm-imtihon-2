@@ -1,0 +1,20 @@
+[
+    {
+        "group_id": 1,
+        "group_name": "NodeJs",
+        "class_days": "DU-SE-CHOR",
+        "class_time": "9:00-11:00",
+        "student_count": 0,
+        "is_pad": null,
+        "group_date": "2022-05-27T11:39:17.982Z"
+    },
+    {
+        "group_id": 2,
+        "group_name": "NodeJs",
+        "class_days": "DU-SE-CHOR",
+        "class_time": "9:00-11:00",
+        "student_count": 1,
+        "is_pad": null,
+        "group_date": "2022-05-27T13:28:34.679Z"
+    }
+]
