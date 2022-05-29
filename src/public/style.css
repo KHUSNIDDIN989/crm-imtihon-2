@@ -140,3 +140,12 @@ li:hover {
   height: 880px;
   overflow-y: scroll;
 }
+.auth {
+  height: 100vh;
+}
+.body {
+  background: #f0f2fa;
+}
+.margin {
+  margin-left: 12px;
+}

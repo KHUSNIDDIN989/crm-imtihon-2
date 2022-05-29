@@ -12,17 +12,17 @@ searchBar.addEventListener("keyup", (e) => {
 
   const filteredCharacters = hpCharacters.filter((character) => {
     return character.student_name
-      .toLowerCase()
+      ?.toLowerCase()
       .includes(searchString.toLowerCase().trim());
   });
   displayCharacters(filteredCharacters);
 });
+
 filter.addEventListener("click", (e) => {
   const searchString = e.target.value;
-
   const filteredCharacters = hpCharacters.filter((character) => {
-    return character.direction
-      .toLowerCase()
+    return character.student_group_name
+      ?.toLowerCase()
       .includes(searchString.toLowerCase());
   });
   displayCharacters(filteredCharacters);
@@ -30,7 +30,7 @@ filter.addEventListener("click", (e) => {
 
 const loadCharacters = async () => {
   try {
-    const res = await fetch("http://localhost:9999/get");
+    const res = await fetch("http://localhost:9999/studentfront");
     hpCharacters = await res.json();
     displayCharacters(hpCharacters);
   } catch (err) {
@@ -39,16 +39,15 @@ const loadCharacters = async () => {
 };
 
 const displayCharacters = (characters) => {
-  const htmlString = characters
+  const filterRole = characters.filter((e) => e.role == "student");
+  const htmlString = filterRole
     .map((character, i) => {
       return `
             <tr>
       <th scope="row">${i + 1}</th>
       <td> ${character.student_name}</td>
-      <td>+${character.student_phone}</td>
-      <td> ${character.direction}</td>
-      <td> ${character.class_days}</td>
-      <td>${character.class_time}</td>
+      <td>${character.student_phone}</td>
+      <td> ${character.student_group_name}</td>
       <td class="pointer" data-delete=${character.student_id} id="delete">
        <i id="delete" class="bi bi-trash"></i>
       </td>

@@ -1,30 +1,35 @@
+const tbody = document.querySelector("#tbody");
+const searchBar = document.querySelector("#search");
+const filter = document.querySelector("#filter");
+
 let hpCharacters = [];
-let dsCharacters = [];
 
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value;
 
-  const filteredCharacters = hpCharacters.filter((character) => {
-    return character.student_name
+  const filteredCharacters = hpCharacters?.filter((character) => {
+    return character.courses_name
       .toLowerCase()
       .includes(searchString.toLowerCase().trim());
   });
+
   displayCharacters(filteredCharacters);
 });
+
 filter.addEventListener("click", (e) => {
   const searchString = e.target.value;
 
   const filteredCharacters = hpCharacters.filter((character) => {
-    return character.direction
+    return character.courses_name
       .toLowerCase()
-      .includes(searchString.toLowerCase());
+      .includes(searchString.toLowerCase().trim());
   });
   displayCharacters(filteredCharacters);
 });
 
 const loadCharacters = async () => {
   try {
-    const res = await fetch("http://localhost:9999/get");
+    const res = await fetch("http://localhost:9999/coursesfront");
     hpCharacters = await res.json();
     displayCharacters(hpCharacters);
   } catch (err) {
@@ -38,19 +43,18 @@ const displayCharacters = (characters) => {
       return `
             <tr>
       <th scope="row">${i + 1}</th>
-      <td> ${character.student_name}</td>
-      <td>+${character.student_phone}</td>
-      <td> ${character.direction}</td>
-      <td> ${character.class_days}</td>
-      <td>${character.class_time}</td>
-      <td class="pointer" data-delete=${character.student_id} id="delete">
-       <i id="delete" class="bi bi-trash"></i>
+      <td> ${character.courses_name}</td>
+      <td>${character.courses_price} so'm</td>
+      <td class="pointer" data-delete=${character.courses_id} id="delete">
+       <i id="delete" class="bi bi-trash" data-delete=${
+         character.courses_id
+       }></i>
       </td>
     </tr>
         `;
     })
     .join("");
-  charactersList.innerHTML = htmlString;
+  tbody.innerHTML = htmlString;
 };
 
 loadCharacters();
@@ -58,13 +62,13 @@ loadCharacters();
 // DELETED STUDENET
 tbody.addEventListener("click", (e) => {
   if (e.target.matches("#delete")) {
-    fetch(`http://localhost:9999/delete/${e.target.dataset.delete}`, {
+    fetch(`http://localhost:9999/courses/${e.target.dataset.delete}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data) {
-          window.location.href = "students";
+          window.location.href = "courses";
         }
       });
   }
